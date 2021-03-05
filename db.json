@@ -1,0 +1,78 @@
+{
+  "magician": [
+    {
+      "_id": 1,
+      "name": "Harry Potter",
+      "age": 40,
+      "img": "https://www.irishtimes.com/polopoly_fs/1.3170107.1501253408!/image/image.jpg_gen/derivatives/ratio_1x1_w1200/image.jpg",
+      "houseId": 1
+    },
+    {
+      "_id": 2,
+      "name": "Hermione Jean Granger",
+      "age": 41,
+      "img": "https://upload.wikimedia.org/wikipedia/he/5/57/Hermione_poster_detail.jpg",
+      "houseId": 1
+    },
+    {
+      "_id": 3,
+      "name": "Newt Scamander",
+      "age": 23,
+      "img": "https://upload.wikimedia.org/wikipedia/he/thumb/4/4f/Fantastic_Beasts_-_Newt_Scamander_Profile.jpg/330px-Fantastic_Beasts_-_Newt_Scamander_Profile.jpg",
+      "houseId": 2
+    },
+    {
+      "_id": 4,
+      "name": "Ernie Macmillan",
+      "age": 40,
+      "img": "https://static.wikia.nocookie.net/harrypotter/images/d/de/Ernie_GOF.jpg/revision/latest/scale-to-width-down/696?cb=20160720043852",
+      "houseId": 2
+    },
+    {
+      "_id": 5,
+      "name": "Luna Lovegood",
+      "age": 39,
+      "img": "https://upload.wikimedia.org/wikipedia/en/c/c2/LunaLovegood.jpeg",
+      "houseId": 3
+    },
+    {
+      "_id": 6,
+      "name": "Cho Chang",
+      "age": 41,
+      "img": "https://static.wikia.nocookie.net/harrypotterheb/images/e/e1/Cho.jpg/revision/latest/scale-to-width-down/340?cb=20090906183213&path-prefix=he",
+      "houseId": 3
+    },
+    {
+      "_id": 7,
+      "name": "Lord Voldemort",
+      "age": 84,
+      "img": "https://sites.google.com/site/everythingonharrypotter/_/rsrc/1530786929205/death-eaters/VoldemortHeadshot_DHP1.png",
+      "houseId": 4
+    },
+    {
+      "_id": 8,
+      "name": "Draco Malfoy",
+      "age": 40,
+      "img": "https://static.wikia.nocookie.net/harrypotterheb/images/1/1b/00gewzhd.jpg/revision/latest/scale-to-width-down/340?cb=20110726232127&path-prefix=he",
+      "houseId": 4
+    }
+  ],
+  "house": [
+    {
+      "_id": 1,
+      "house-name": "gryffindor"
+    },
+    {
+      "_id": 2,
+      "house-name": "hufflepuff"
+    },
+    {
+      "_id": 3,
+      "house-name": "ravenclaw"
+    },
+    {
+      "_id": 4,
+      "house-name": "slytherin"
+    }
+  ]
+}
