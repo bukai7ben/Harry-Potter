@@ -1,41 +1,27 @@
 import React, {useEffect, useState} from 'react';
 import './HouseDisplay.css';
 import Header from "../../components/Header/Header";
-import MediaCard from "../../components/Card/MediaCard";
+import MagicianMediaCard from "../../components/Card/MagicianMediaCard";
 import {getMagician} from "../../utils/services/Magician";
 import Scroll from "../../components/Scroll/Scroll";
+import {Magician} from "../../utils/models/Magician";
+import {House} from "../../utils/models/House";
 
-interface HouseDisplayProps {
-    houseName: string;
-    houseId: number;
-    houseImg: string;
-}
-interface magician{
-    name:string;
-    age:number;
-    img:string;
-    _id:number;
+interface HouseDisplayProps{
+    house: House;
 }
 
 export default function HouseDisplay(props: HouseDisplayProps) {
-    const {houseName, houseId, houseImg} = props;
+    const { house } = props;
 
-    const [MagiciansArr, setMagiciansArr] = useState<magician[]>([]);
+    const [MagiciansArr, setMagiciansArr] = useState<Magician[]>([]);
     const [filteredBySearchingFromMagiciansArr, setFilteredBySearchingFromMagiciansArr] = useState([]);
-    console.log(JSON.stringify(MagiciansArr))
     useEffect(() => {
-        let mounted = true;
         getMagician()
             .then(magicians => {
-                if (mounted) {
-                    setMagiciansArr(magicians.filter((magician: { houseId: number; }) => props.houseId === magician.houseId));
+                    setMagiciansArr(magicians.filter((magician: Magician) => house._id === magician.houseId));
                     /*(magicians.filter((magician: { houseId: number; }) => props.houseId === magician.houseId));*/
-                }
             })
-        console.log(JSON.stringify(MagiciansArr))
-        return () => {
-            mounted = false
-        };
     }, [])
 
     /*function onSearchChange(e:string) {
@@ -47,13 +33,11 @@ export default function HouseDisplay(props: HouseDisplayProps) {
 
     return (
         <div>
-            <Header img={houseImg} houseName={houseName} houseId={houseId}/>
+            <Header img={house.img} houseName={`House ${house.name}`} houseId={house._id}/>
             <Scroll>
                 <div className="card-container">
-                    {MagiciansArr.map(magician => <MediaCard key={magician._id}
-                                                            name={magician.name}
-                                                            img={magician.img}
-                                                            age={magician.age}
+                    {MagiciansArr.map(magician => <MagicianMediaCard key={magician._id}
+                                                                     magicianToDisplay={magician}
                 />)}
                 </div>
             </Scroll>
