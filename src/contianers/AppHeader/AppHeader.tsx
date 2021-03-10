@@ -1,24 +1,10 @@
-import './AppHeader.css';
 import React from 'react';
-import {makeStyles, Theme} from '@material-ui/core/styles';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import {Houses} from "../../utils/houses/Houses";
+import {useStyles} from "./AppHeaderStyle"
 
-
-const useStyles = makeStyles((theme: Theme) => ({
-    root: {
-        flexGrow: 1,
-        padding: 1,
-        fontFamily: "'Bitter', serif;",
-    },
-    tab: {
-        color: "white",
-        fontSize: "1.1em",
-    },
-}));
-
-interface AppHeaderProps{
+interface AppHeaderProps {
     onTabChange: (value: number) => void;
     tabToDisplay: number;
 }
@@ -33,11 +19,11 @@ export default function AppHeader(props: AppHeaderProps) {
 
     return (
         <div className={classes.root}>
-            <div className="app-header">
+            <div className={classes.appHeader}>
                 <Tabs value={tabToDisplay} onChange={handleChange}
                       TabIndicatorProps={{style: {background: 'white'}}}>
-                    {Houses.map((house,index)=>(
-                        <Tab className={classes.tab} label={house.name}  />
+                    {Houses.map((house, tabToDisplay) => (
+                        <Tab className={classes.tab} label={house.name}/>
                     ))}
                 </Tabs>
             </div>

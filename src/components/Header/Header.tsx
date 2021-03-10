@@ -1,6 +1,5 @@
 import React from 'react';
-import './Header.css';
-
+import {useStyles} from "./HeaderStyle";
 
 interface HouseProps{
     img:string;
@@ -9,12 +8,13 @@ interface HouseProps{
 }
 
 function Header(props:HouseProps) {
-    const {img,houseName,houseId}=props
+    const classes = useStyles();
+    const {img,houseName,houseId}=props;
     return (
-        <div className="header" id={'house' + houseId }>
-            <img className="image" src={img}/>
-            <span className="name"> {houseName}</span>
-            <input className="input"
+        <div className={`${classes.header} ${classes[houseId]}`}>
+            <img className={classes.image} src={img}/>
+            <span className={classes.name}> {houseName}</span>
+            <input className={classes.input}
                    type="text"
                    placeholder="Search Magician . . ."
             />
