@@ -1,23 +1,24 @@
-import React from 'react';
-import {useStyles} from "./styles";
 
+import {useStyles} from "./styles";
+import SearchBox from "../SearchBox/SearchBox";
+import React, {ChangeEventHandler} from 'react';
 interface HouseProps {
     img: string;
     houseName: string;
     houseId: number;
+    SearchChange: ChangeEventHandler<HTMLInputElement>;
 }
+
+
 
 function Header(props: HouseProps) {
     const classes = useStyles();
-    const {img, houseName, houseId} = props;
+    const {img, houseName, houseId, SearchChange} = props;
     return (
         <div className={`${classes.header} ${classes[houseId]}`}>
-            <img className={classes.image} src={img}/>
+            <img alt="" className={classes.image} src={img}/>
             <span className={classes.name}> {houseName}</span>
-            <input className={classes.input}
-                   type="text"
-                   placeholder="Search Magician . . ."
-            />
+            <SearchBox searchChange={SearchChange}/>
         </div>
     );
 }
