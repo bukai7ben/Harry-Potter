@@ -1,9 +1,10 @@
 import React from 'react';
-import './Scroll.css'
+import {useStyles} from "./styles"
 
-const Scroll = (props:any)=>{
+const Scroll = (props: any) => {
+    const classes = useStyles();
     return (
-        <div className="scroll" >
+        <div className={classes.scroll}>
             {props.children}
         </div>
     );

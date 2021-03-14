@@ -24,7 +24,7 @@ function TabPanel(props: TabPanelProps) {
     );
 }
 
-interface HouseTabPanelProps{
+interface HouseTabPanelProps {
     tabToDisplay: number;
 }
 
