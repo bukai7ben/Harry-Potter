@@ -1,15 +1,15 @@
 import React from 'react';
-import {useStyles} from "./HeaderStyle";
+import {useStyles} from "./styles";
 
-interface HouseProps{
-    img:string;
-    houseName:string;
-    houseId:number;
+interface HouseProps {
+    img: string;
+    houseName: string;
+    houseId: number;
 }
 
-function Header(props:HouseProps) {
+function Header(props: HouseProps) {
     const classes = useStyles();
-    const {img,houseName,houseId}=props;
+    const {img, houseName, houseId} = props;
     return (
         <div className={`${classes.header} ${classes[houseId]}`}>
             <img className={classes.image} src={img}/>

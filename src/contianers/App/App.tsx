@@ -3,7 +3,7 @@ import AppHeader from "../AppHeader/AppHeader";
 import HouseTabPanel from "../HouseTabPanel/HouseTabPanel";
 
 
-export default function App(){
+export default function App() {
 
     const [value, setValue] = React.useState<number>(0);
     return (
