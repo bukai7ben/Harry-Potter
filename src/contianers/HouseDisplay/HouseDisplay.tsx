@@ -6,6 +6,7 @@ import {getMagician} from "../../utils/services/Magician";
 import Scroll from "../../components/Scroll/Scroll";
 import {Magician} from "../../utils/models/Magician";
 import {House} from "../../utils/models/House";
+import OnSearchChangeContext from "./OnSearchChangeContext"
 
 interface HouseDisplayProps {
     house: House;
@@ -17,12 +18,14 @@ export default function HouseDisplay(props: HouseDisplayProps) {
     const [initialMagiciansArr, setInitialMagiciansArr] = useState<Magician[]>([]);
     const [MagiciansArr, setMagiciansArr] = useState<Magician[]>([]);
 
+    function isMagicianInSearchScope(magician: Magician, searchValue: string) {
+        return magician.name.toLowerCase().includes(searchValue.toLowerCase());
+    }
+
     function onSearchChange(event: FormEvent<HTMLInputElement>) {
         const searchValue: string = event.currentTarget.value;
-        if (!searchValue) return setMagiciansArr(initialMagiciansArr);
-        setMagiciansArr(MagiciansArr.filter((magician) => {
-            return magician.name.toLowerCase().includes(searchValue.toLowerCase());
-        }));
+        return searchValue ? setMagiciansArr(initialMagiciansArr.filter((magician) =>
+            isMagicianInSearchScope(magician, searchValue))) : setMagiciansArr(initialMagiciansArr);
     }
 
     useEffect(() => {
@@ -35,8 +38,10 @@ export default function HouseDisplay(props: HouseDisplayProps) {
 
     return (
         <div>
-            <Header SearchChange={onSearchChange} img={house.img} houseName={`House ${house.name}`}
-                    houseId={house._id}/>
+            <OnSearchChangeContext.Provider value={onSearchChange}>
+                <Header img={house.img} houseName={`House ${house.name}`}
+                        houseId={house._id}/>
+            </OnSearchChangeContext.Provider>
             <Scroll>
                 <div className={classes.cardContainer}>
                     {MagiciansArr.map(magician => <MagicianMediaCard key={magician._id}

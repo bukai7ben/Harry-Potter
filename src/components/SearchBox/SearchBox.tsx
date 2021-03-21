@@ -1,19 +1,18 @@
-import React, {ChangeEventHandler} from 'react';
+import React, {useContext} from 'react';
 import {useStyles} from "./styles";
+import OnSearchChangeContext from "../../contianers/HouseDisplay/OnSearchChangeContext"
 
-interface SearchBoxProps {
-    searchChange: ChangeEventHandler<HTMLInputElement>;
-}
 
-export default function SearchBox(props: SearchBoxProps) {
+export default function SearchBox() {
     const classes = useStyles();
-    const {searchChange} = props;
+    const OnSearchChange: any = useContext(OnSearchChangeContext);
+    const placeholderText = "Search Magician . . ."
     return (
         <div>
             <input className={classes.input}
                    type="search"
-                   placeholder="Search Magician . . ."
-                   onChange={searchChange}
+                   placeholder={placeholderText}
+                   onChange={OnSearchChange}
             />
         </div>
     );
