@@ -2,7 +2,7 @@ import React from 'react';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import {Houses} from "../../utils/houses/Houses";
-import {useStyles} from "./AppHeaderStyle"
+import {useStyles} from "./styles"
 
 interface AppHeaderProps {
     onTabChange: (value: number) => void;

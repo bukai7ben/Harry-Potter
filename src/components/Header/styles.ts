@@ -9,12 +9,6 @@ export const useStyles = makeStyles({
         justifyContent: "space-between",
         paddingRight: "10px",
     },
-    input: {
-        border: "none",
-        borderRadius: "25px",
-        padding: "5px 5px",
-        fontColor: "#1A1A1A",
-    },
     name: {
         paddingLeft: "10px",
         fontSize: "2em",
